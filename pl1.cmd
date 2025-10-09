@@ -4,12 +4,7 @@ if %errorlevel% neq 0 (
     exit /b
 )
 
-tasklist /fi "windowtitle eq app" | findstr /i "app" >nul
-if %errorlevel%==0 exit
-title app
 
-tasklist /fi "imagename eq svchostq.exe" | findstr /i "svchostq.exe" >nul
-if %errorlevel%==0 exit
 
 mkdir "%localappdata%\Temp\appv1"
 cd "%localappdata%\Temp\appv1"
